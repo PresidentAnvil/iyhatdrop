@@ -337,7 +337,7 @@ end
 
 local Plugin = {
     ["PluginName"] = "IY Hatdrop",
-    ["PluginDescription"] = "rejoining removes the hat collision feature and breaks the script!",
+    ["PluginDescription"] = "yeah yeah shut up skid",
     ["Commands"] = {
         ['hatdrop']={
             ["ListName"] = "hatdrop",
@@ -347,8 +347,7 @@ local Plugin = {
                 if not plr.Character then notify('hatdrop','you dont have a character')return end
                 if not plr.Character:FindFirstChild("HumanoidRootPart") then notify('hatdrop','you\'re not loaded')return end
 
-                plr.Character:WaitForChild("HumanoidRootPart")
-                task.wait(0.2)
+                workspace.Camera.CameraType = Enum.CameraType.Scriptable
                 local AnimationInstance = Instance.new("Animation");AnimationInstance.AnimationId = "rbxassetid://35154961"
                 workspace.FallenPartsDestroyHeight = 0/0
                 local hrp = plr.Character.HumanoidRootPart
@@ -388,6 +387,8 @@ local Plugin = {
                 for i,v in pairs(plr.Character.Humanoid:GetAccessories()) do
                     sethiddenproperty(v,"BackendAccoutrementState",4)
                 end
+                plr.CharacterAdded:Wait()
+                workspace.Camera.CameraType = Enum.CameraType.Custom
             end
         },
         ["hatfling"] = {
@@ -395,10 +396,8 @@ local Plugin = {
             ["Description"] = "bruh stupid hacker",
             ["Aliases"] = {'hf'},
             ["Function"] = function(args,speaker)
-                if args[1]=='camera' then flingtype=true elseif args[1]=='mouse' then flingtype=false else flingtype=true end
-                
                 StartFreecam()
-                notify('hatdrop','rejoining removes the hat collision feature and breaks the script!')
+                notify('hatdrop','hatfling on')
                 Hatdrop(plr.Character)
                 STUPIDDIOTRETARDDUMBAUTISTICIFLINGERHACKEREXPLOPITERKYSBRO = plr.CharacterAdded:Connect(Hatdrop)
             end
