@@ -81,7 +81,7 @@ local Plugin = {
                 if not plr.Character then notify('hatdrop','you dont have a character')return end
                 if not plr.Character:FindFirstChild("HumanoidRootPart") then notify('hatdrop','you\'re not loaded')return end
 
-		notify('performing hatdrop','if you've rejoined or changed servers, your hats won't get collision!')
+		notify("performing hatdrop','if you've rejoined or changed servers, your hats won't get collision!")
                 workspace.Camera.CameraType = Enum.CameraType.Scriptable
                 Hatdrop(plr.Character,function(startCF) 
                     for i,v in pairs(plr.Character.Humanoid:GetAccessories()) do
